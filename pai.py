@@ -91,9 +91,9 @@ def wish(name):
         </div>
         <div class="main-content">
             <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3B1cTN0OGQ3Mnh4aGE0ejd2YnNybGt6cTZhYTBxNmNucHd1N21vYyZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/SwIMZUJE3ZPpHAfTC4/giphy.gif' alt='Happy Birthday' style='width:100%; max-width:300px; margin-bottom:20px;'/>
-            <h1 style='text-align:center; font-size:2em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
-            <p style='text-align:center; font-size:1.2em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
-            <p style='text-align:center; font-size:1em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
+            <h1 style='text-align:center; font-size:2.5em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
+            <p style='text-align:center; font-size:1.5em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
+            <p style='text-align:center; font-size:1.5em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
         </div>
         """.format(
             name,
