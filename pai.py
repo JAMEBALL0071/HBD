@@ -48,16 +48,27 @@ def index():
             share_url = url_for('wish', name=name, _external=True)
     return render_template_string(HTML, name=name, share_url=share_url)
 
-@app.route("/wish/<name>")
+@app.route("/wish/<name>", methods=["GET", "POST"])
 def wish(name):
-    return """
-    <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; padding:10px;'>
-        <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3B1cTN0OGQ3Mnh4aGE0ejd2YnNybGt6cTZhYTBxNmNucHd1N21vYyZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/SwIMZUJE3ZPpHAfTC4/giphy.gif' alt='Happy Birthday' style='width:100%; max-width:300px; margin-bottom:20px;'/>
-        <h1 style='text-align:center; font-size:2em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
-        <p style='text-align:center; font-size:1.2em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
-        <p style='text-align:center; font-size:1em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
-    </div>
-    """.format(name)
-
+    if request.method == "POST":
+        return """
+        <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; padding:10px;'>
+            <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3B1cTN0OGQ3Mnh4aGE0ejd2YnNybGt6cTZhYTBxNmNucHd1N21vYyZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/SwIMZUJE3ZPpHAfTC4/giphy.gif' alt='Happy Birthday' style='width:100%; max-width:300px; margin-bottom:20px;'/>
+            <h1 style='text-align:center; font-size:2em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
+            <p style='text-align:center; font-size:1.2em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
+            <p style='text-align:center; font-size:1em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
+        </div>
+        """.format(name)
+    else:
+        return """
+        <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;'>
+            <form method='post'>
+                <button type='submit' style='padding:15px 30px; font-size:1.2em; background:#ff69b4; color:white; border:none; border-radius:8px; cursor:pointer;'>
+                    ดูคำอวยพรวันเกิด 🎉
+                </button>
+            </form>
+        </div>
+        """
+        
 if __name__ == "__main__":
     app.run(debug=True)
