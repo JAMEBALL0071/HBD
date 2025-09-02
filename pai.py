@@ -52,13 +52,49 @@ def index():
 def wish(name):
     if request.method == "POST":
         return """
-        <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; padding:10px;'>
+        <style>
+        body, html {{
+            height: 100%;
+            margin: 0;
+        }}
+        .bg-text {{
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            opacity: 0.07;
+            font-size: 3em;
+            color: #ff69b4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            overflow: hidden;
+        }}
+        .main-content {{
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+        }}
+        </style>
+        <div class="bg-text">
+            {names}
+        </div>
+        <div class="main-content">
             <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3B1cTN0OGQ3Mnh4aGE0ejd2YnNybGt6cTZhYTBxNmNucHd1N21vYyZlcD12MV9naWZzX3RyZW5kaW5nJmN0PWc/SwIMZUJE3ZPpHAfTC4/giphy.gif' alt='Happy Birthday' style='width:100%; max-width:300px; margin-bottom:20px;'/>
             <h1 style='text-align:center; font-size:2em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
             <p style='text-align:center; font-size:1.2em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
             <p style='text-align:center; font-size:1em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
         </div>
-        """.format(name)
+        """.format(
+            name,
+            names=" ".join([name] * 40)
+        )
     else:
         return """
         <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;'>
