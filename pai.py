@@ -53,13 +53,18 @@ def index():
 def wish(name):
     name = urllib.parse.unquote(name)
     if request.method == "POST":
-        return """
+                return """
         <style>
         body, html {{
             height: 100%;
             margin: 0;
         }}
-                .bg-text {{
+        @keyframes bgMove {{
+            0% {{ opacity: 0; transform: translateY(40px) scale(0.95); }}
+            50% {{ opacity: 0.18; transform: translateY(-20px) scale(1.05); }}
+            100% {{ opacity: 0.12; transform: translateY(0) scale(1); }}
+        }}
+        .bg-text {{
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: 0;
@@ -74,6 +79,7 @@ def wish(name):
             pointer-events: none;
             overflow: hidden;
             line-height: 1.1;
+            animation: bgMove 2s ease;
         }}
         .main-content {{
             position: relative;
@@ -98,18 +104,5 @@ def wish(name):
         </div>
         """.format(
             name,
-            names=" ".join([name] * 200)  # เพิ่มจำนวนชื่อให้เต็มพื้นหลัง
+            names=" ".join([name] * 200)
         )
-    else:
-        return """
-        <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;'>
-            <form method='post'>
-                <button type='submit' style='padding:15px 30px; font-size:1.2em; background:#ff69b4; color:white; border:none; border-radius:8px; cursor:pointer;'>
-                    ดูคำอวยพรวันเกิด 🎉
-                </button>
-            </form>
-        </div>
-        """
-        
-if __name__ == "__main__":
-    app.run(debug=True)
