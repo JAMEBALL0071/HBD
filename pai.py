@@ -51,7 +51,7 @@ def index():
 
 @app.route("/wish/<name>", methods=["GET", "POST"])
 def wish(name):
-    name = urllib.parse.unquote(name)  # แก้ไขตรงนี้
+    name = urllib.parse.unquote(name)
     if request.method == "POST":
         return """
         <style>
@@ -63,15 +63,17 @@ def wish(name):
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: 0;
-            opacity: 0.07;
-            font-size: 3em;
+            opacity: 0.18;
+            font-size: 3.5em;
             color: #ff69b4;
+            font-weight: bold;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             pointer-events: none;
             overflow: hidden;
+            line-height: 1.1;
         }}
         .main-content {{
             position: relative;
@@ -95,7 +97,7 @@ def wish(name):
         </div>
         """.format(
             name,
-            names=" ".join([name] * 40)
+            names=" ".join([name] * 200)  # เพิ่มจำนวนชื่อให้เต็มพื้นหลัง
         )
     else:
         return """
