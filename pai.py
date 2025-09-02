@@ -1,4 +1,5 @@
 from flask import Flask, render_template_string, request, url_for
+import urllib.parse
 
 app = Flask(__name__)
 
@@ -50,6 +51,7 @@ def index():
 
 @app.route("/wish/<name>", methods=["GET", "POST"])
 def wish(name):
+    name = urllib.parse.unquote(name)  # แก้ไขตรงนี้
     if request.method == "POST":
         return """
         <style>
