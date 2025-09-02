@@ -1,0 +1,8 @@
+{
+  "builds": [
+    { "src": "pai.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "pai.py" }
+  ]
+}
