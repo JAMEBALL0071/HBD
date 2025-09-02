@@ -63,8 +63,8 @@ def wish(name):
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: 0;
-            opacity: 0.18;
-            font-size: 3.5em;
+            opacity: 0.10;
+            font-size: 3em;
             color: #ff69b4;
             font-weight: bold;
             display: flex;
@@ -97,7 +97,7 @@ def wish(name):
         </div>
         """.format(
             name,
-            names=" ".join([name] * 200)  # เพิ่มจำนวนชื่อให้เต็มพื้นหลัง
+            names=" ".join([name] * 40)  # เพิ่มจำนวนชื่อให้เต็มพื้นหลัง
         )
     else:
         return """
