@@ -94,6 +94,7 @@ def wish(name):
             <h1 style='text-align:center; font-size:2.5em; color:#ff69b4;'>🎉 สุขสันต์วันเกิด {0}! 🎂</h1>
             <p style='text-align:center; font-size:1.5em;'>ขอให้มีความสุขมาก ๆ นะ!</p>
             <p style='text-align:center; font-size:1.5em;'>สุขภาพร่างกายแข็งแรง ไม่เจ็บ ไม่จน น่า!</p>
+            <p style='text-align:center; font-size:1.5em;'>จุ๊บมั๊วะ!😘</p>
         </div>
         """.format(
             name,
