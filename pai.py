@@ -59,13 +59,13 @@ def wish(name):
             height: 100%;
             margin: 0;
         }}
-        .bg-text {{
+                .bg-text {{
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: 0;
-            opacity: 0.7;
+            opacity: 0.18;
             font-size: 3em;
-            color: #ff69b4;
+            color: #ffb6e6;
             font-weight: bold;
             display: flex;
             flex-wrap: wrap;
