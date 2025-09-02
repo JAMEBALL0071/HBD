@@ -53,7 +53,7 @@ def index():
 def wish(name):
     name = urllib.parse.unquote(name)
     if request.method == "POST":
-                return """
+        return """
         <style>
         body, html {{
             height: 100%;
@@ -106,3 +106,13 @@ def wish(name):
             name,
             names=" ".join([name] * 200)
         )
+    else:
+        return """
+        <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;'>
+            <form method='post'>
+                <button type='submit' style='padding:15px 30px; font-size:1.2em; background:#ff69b4; color:white; border:none; border-radius:8px; cursor:pointer;'>
+                    ดูคำอวยพรวันเกิด 🎉
+                </button>
+            </form>
+        </div>
+        """
